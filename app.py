@@ -46,8 +46,8 @@ def preprocess_csv(df, downsample_factor=5):
 # loading models
 @st.cache_resource
 def load_models():
-    model_csv = tf.keras.models.load_model(model_1, compile=False)  
-    model_image = tf.keras.models.load_model(model_2, compile=False)
+    model_csv = tf.keras.models.load_model("autoencoder (85).h5)  
+    model_image = tf.keras.models.load_model("custom_dcnn_model.h5")
     return model_csv, model_image
 
 model_csv, model_image = load_models()
