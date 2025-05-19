@@ -11,7 +11,7 @@ import joblib
 
 # models
 url_1 = "https://drive.google.com/uc?id=1RjO6e_fI8NUT6F3zPs12qHYLOxqXIVOe"
-model_1 = "autoencoder.h5"
+model_1 = "autoencoder (85).h5"
 #gdown.download(url_1, model_1, quiet=False)
 
 url_2 = "https://drive.google.com/uc?id=17jofX6sh8ennWJ_mboLyZxmcvJ2eniod"
@@ -22,7 +22,7 @@ model_2 = "custom_dcnn_model.h5"
 url_scaler = "https://drive.google.com/uc?id=1VS_8Se0KRqanfxYxTgLFi4fcv_lCEfjQ"
 scaler_file = "scaler.pkl"
 #gdown.download(url_scaler, scaler_file, quiet=False)
-scaler = joblib.load(scaler_file)
+scaler = "scaler.pkl"
 
 # csv preprocessing
 def preprocess_csv(df, downsample_factor=5):
@@ -46,8 +46,8 @@ def preprocess_csv(df, downsample_factor=5):
 # loading models
 @st.cache_resource
 def load_models():
-    model_csv = tf.keras.models.load_model("autoencoder (85).h5")  
-    model_image = tf.keras.models.load_model("custom_dcnn_model.h5")
+    model_csv = tf.keras.models.load_model(model_1)  
+    model_image = tf.keras.models.load_model(model_2)
     return model_csv, model_image
 
 model_csv, model_image = load_models()
